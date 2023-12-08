@@ -11,6 +11,7 @@ if (isset($_POST['submit']))
  	$password=$_POST['password'];
 	$filename=$_FILES['image']['name'];
 	echo $filename;
+ }
 $location='admin/image/'.$filename;
 
 
@@ -26,7 +27,7 @@ if(in_array($file_extension,$image_ext)){
 		$response=$location;
 	}
 }
-//echo $response;
+echo $response;
 
 $status=1;
 	$insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
