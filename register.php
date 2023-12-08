@@ -29,12 +29,11 @@ if(in_array($file_extension,$image_ext)){
 echo $response;
 
 $status=1;
+
 $insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
 //$query = mysqli_query($con, "SELECT ..."); // Your SQL query
 echo "i am here";
-if (!$insert_record) {
-    die('Error in SQL query: ' . mysqli_error($conn)); // Display the SQL error if any
-}
+
 if(!$insert_record){
 	echo "not inserted";
 }
