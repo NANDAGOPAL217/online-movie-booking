@@ -2,6 +2,6 @@
 
 //database_connection.php
 
-$connect = new PDO("mysql:host=localhost;dbname=moviebook", "root", "");
+$connect = new PDO("mysql:host=movieonline12-server.mysql.database.azure.com;dbname=movieonline12-database", "root", "");
 
 ?>
