@@ -38,6 +38,6 @@ $status=1;
 		echo "hii";
 	 //echo "<script>window.location = 'login_form.php';</script>";
 	}
-
+echo $status;
 }
 ?>
