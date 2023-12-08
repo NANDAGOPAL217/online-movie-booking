@@ -28,21 +28,15 @@ if(in_array($file_extension,$image_ext)){
 echo $response;
 
 $status=1;
-	 $query="insert into user values('$username','$email','$mobile','$city','$password','$response')";
-	 if($filename==null)
-	 {
-		 $insert_record=mysqli_query($conn,$query)
-			 }else{
 	$insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
-	 }
 	if(!$insert_record){
 		echo "not inserted";
 	}
 	else
 	{
-		echo "hii";
+		echo "inserted successfully";
 	 //echo "<script>window.location = 'login_form.php';</script>";
 	}
-
+echo $status;
 }
 ?>
