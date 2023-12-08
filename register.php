@@ -1,24 +1,22 @@
-
 <?php
 include_once "Database.php";
 session_start();
 if (isset($_POST['submit']))
  {
- 	$username="ritwik";
- 	$email="ritwikreddy99@gmail.com";
- 	$mobilenum=(int)"9700358070";
-	
- 	$city="hyderabad";
- 	$password="some password";
-	$filename="some file";
+ 	$username=$_POST['username'];
+ 	$email=$_POST['email'];
+ 	$mobile=$_POST['number'];
+ 	$city=$_POST['city'];
+ 	$password=$_POST['password'];
+	$filename=$_FILES['image']['name'];
 	echo $filename;
-// $location='admin/image/'.$filename;
+$location='admin/image/'.$filename;
 
 
 
-// $file_extension=pathinfo($location,PATHINFO_EXTENSION);
-// $file_extension=strtolower($file_extension);
-// $image_ext=array('jpg','png','jpeg','gif');
+$file_extension=pathinfo($location,PATHINFO_EXTENSION);
+$file_extension=strtolower($file_extension);
+$image_ext=array('jpg','png','jpeg','gif');
 
 $response=0;
 
@@ -30,8 +28,13 @@ if(in_array($file_extension,$image_ext)){
 echo $response;
 
 $status=1;
-	 $query="insert into user values('$username','$email','$mobile','$city','$password','$filename')";
-	$insert_record=mysqli_query($conn, $query);
+	 $query="insert into user values('$username','$email','$mobile','$city','$password','$response')";
+	 if($filename==null)
+	 {
+		 $insert_record=mysqli_query($conn,$query)
+			 }else{
+	$insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
+	 }
 	if(!$insert_record){
 		echo "not inserted";
 	}
