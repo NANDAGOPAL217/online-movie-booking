@@ -6,7 +6,8 @@ if (isset($_POST['submit']))
  {
  	$username=$_POST['username'];
  	$email=$_POST['email'];
- 	$mobile=$_POST['number'];
+ 	$mobilenum=$_POST['number'];
+	$mobile=(int)$mobilenum
  	$city=$_POST['city'];
  	$password=$_POST['password'];
 	$filename=$_FILES['image']['name'];
