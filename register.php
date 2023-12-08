@@ -1,4 +1,3 @@
-
 <?php
 include_once "Database.php";
 session_start();
@@ -29,19 +28,19 @@ if(in_array($file_extension,$image_ext)){
 echo $response;
 
 $status=1;
+	 if(!$conn){
+		 echo "database connection error";
+	 }
+	$insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
+	 
+	 if(!$insert_record){
+		echo "not inserted";
+	}
+	else
+	{
+		echo "hii";
+	 //echo "<script>window.location = 'login_form.php';</script>";
+	}
 
-$insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
-//$query = mysqli_query($con, "SELECT ..."); // Your SQL query
-
-if(!$insert_record){
-	echo "not inserted";
-}
-
-else
-{
-	echo "hii";
- //echo "<script>window.location = 'login_form.php';</script>";
-}
-echo $status;
 }
 ?>
