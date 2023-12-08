@@ -31,6 +31,11 @@ echo $response;
 
 $status=1;
 	$insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
+	//$query = mysqli_query($con, "SELECT ..."); // Your SQL query
+
+	if (!$inserted_record) {
+	    die('Error in SQL query: ' . mysqli_error($con)); // Display the SQL error if any
+	}
 	if(!$insert_record){
 		echo "not inserted";
 	}
