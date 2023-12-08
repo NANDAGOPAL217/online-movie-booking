@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include_once __FILE__ . "/Database.php";
+include_once __FILE__ . '/Database.php';
 session_start();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
