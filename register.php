@@ -1,6 +1,6 @@
 <?php
 include_once "database_connection.php";
-
+$conn=mysqli_connect("newdb.mysql.database.azure.com","admin1","pass@123456","moviebook");
 session_start();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
