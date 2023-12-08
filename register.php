@@ -11,7 +11,6 @@ if (isset($_POST['submit']))
  	$password=$_POST['password'];
 	$filename=$_FILES['image']['name'];
 	echo $filename;
- }
 $location='admin/image/'.$filename;
 
 
