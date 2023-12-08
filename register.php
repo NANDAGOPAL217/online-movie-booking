@@ -1,5 +1,5 @@
 <?php
-include_once "/Database.php";
+include_once __DIR__ . "/Database.php";
 session_start();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
