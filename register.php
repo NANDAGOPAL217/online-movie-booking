@@ -3,6 +3,8 @@ include_once "database_connection.php";
 $conn=mysqli_connect("newdb.mysql.database.azure.com","admin1","pass@123456","moviebook");
 if(!$conn){
     echo "connection error";
+}else{
+    echo "connection success";
 }
 session_start();
 if (isset($_POST['submit'])) {
@@ -19,14 +21,14 @@ if (isset($_POST['submit'])) {
     $file_extension = strtolower($file_extension);
     $image_ext = array('jpg', 'png', 'jpeg', 'gif');
 
-    $response = 0;
+    //$response = 0;
 
     if (in_array($file_extension, $image_ext)) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $location)) {
             $response = $location;
         }
     }
-    echo $response;
+    //echo $response;
 
     $status = 1;
     $insert_record = mysqli_query($conn, "INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`) VALUES('" . $username . "','" . $email . "','" . $mobile . "','" . $city . "','" . $password . "','" . $filename . "')");
@@ -34,9 +36,11 @@ if (isset($_POST['submit'])) {
     //$query = mysqli_query($con, "SELECT ..."); // Your SQL query
 
     echo "i am here";
-    if (!$insert_record) {
+    if ($insert_record==false) {
         die('Error in SQL query: ' . mysqli_error($conn)); // Display the SQL error if any
-    }
+    }else{
+        echo "user added to database successfully"
+            }
 
     // Use only one if condition here
     if (!$insert_record) {
