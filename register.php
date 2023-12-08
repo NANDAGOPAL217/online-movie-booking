@@ -32,12 +32,11 @@ $status=1;
 
 $insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
 //$query = mysqli_query($con, "SELECT ..."); // Your SQL query
-echo "i am here";
 
 if(!$insert_record){
 	echo "not inserted";
 }
-echo "i am here too";
+
 else
 {
 	echo "hii";
