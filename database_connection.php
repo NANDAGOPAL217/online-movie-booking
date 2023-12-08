@@ -2,6 +2,6 @@
 
 //database_connection.php
 
-$connect = new PDO("mysql:host=;dbname=moviebook", "admin1", "pass@123456");
+$connect = new PDO("mysql:host=newdb.mysql.database.azure.com;dbname=moviebook", "admin1", "pass@123456");
 
 ?>
