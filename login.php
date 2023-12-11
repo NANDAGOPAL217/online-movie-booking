@@ -9,16 +9,22 @@ if($_POST['username'] == '' || $_POST['password'] == ''){
 }
 $uname = mysqli_real_escape_string($conn,$_POST['username']);
 $password = mysqli_real_escape_string($conn,$_POST['password']);
+$data=array('email'=>$uname,'password'=>$password);
+$url="https://registration-success.azurewebsites.net/api/HttpTrigger1?code=zscJNNOBKqZyRoCjKw7vS--RxNLZL3tcW6FL4cg9R7qPAzFuHtJvXg==";
+$options = array(
+	        'http' => array(
+	            'method' => 'POST',
+	            'content' => json_encode($data)
+	        )
+	    );
+	    $context = stream_context_create($options);
+	    $result = file_get_contents($url, false, $context);
 
-$sql_query = "SELECT count(*) as cntUser FROM user WHERE username='".$uname."' and password='".$password."'";
-$result = mysqli_query($conn,$sql_query);
-$row = mysqli_fetch_array($result);
-$count = $row['cntUser'];
-if($row){
-     if($count > 0){
+$response = json_decode($result, true);
+
+if($response['authenticated']){
         $_SESSION['uname'] = $uname;
         echo 1;
-    }
 }else{
     echo "<li>Invlid Username or password.</li>";
     exit();
