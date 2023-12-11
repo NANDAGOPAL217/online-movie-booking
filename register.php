@@ -9,6 +9,14 @@ if (isset($_POST['submit']))
  	$city=$_POST['city'];
  	$password=$_POST['password'];
 	$filename=$_FILES['image']['name'];
+	$funcitonName='HttpTrigger1';
+	$functionKey='zscJNNOBKqZyRoCjKw7vS--RxNLZL3tcW6FL4cg9R7qPAzFuHtJvXg==';
+	$url='https://registration-success.azurewebsites.net/api/{$functionName}?code={$functionKey}';
+	 $optinos=array(
+		 'http'=>array(
+			 'method' => 'POST',
+			 ),
+		 );
 	echo $filename;
 $location='admin/image/'.$filename;
 
@@ -35,6 +43,17 @@ if(!$insert_record){
 else
 {
 	echo "inserted successfully";
+	
+	$context  = stream_context_create($options);
+    	$result = file_get_contents($url, false, $context);
+
+	    if ($result === FALSE) {
+	        // Handle error
+	        echo "Error making API call";
+	    } else {
+	        // Handle successful API call
+	        echo "API call successful. Response: " . $result;
+	    }
  //echo "<script>window.location = 'login_form.php';</script>";
 }
 echo $status;
