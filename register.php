@@ -12,11 +12,18 @@ if (isset($_POST['submit']))
 	$funcitonName='HttpTrigger1';
 	$functionKey='zscJNNOBKqZyRoCjKw7vS--RxNLZL3tcW6FL4cg9R7qPAzFuHtJvXg==';
 	$url='https://registration-success.azurewebsites.net/api/{$functionName}?code={$functionKey}';
-	 $optinos=array(
-		 'http'=>array(
-			 'method' => 'POST',
-			 ),
-		 );
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_POST, 1);
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	 if (curl_errno($ch)) {
+        echo "Error making API call: " . curl_error($ch);
+	    } else {
+	        // Handle successful API call
+	        echo "API call successful. Response: " . $result;
+	    }
+
+    // Close cURL session
+    		curl_close($ch);
 	echo $filename;
 $location='admin/image/'.$filename;
 
@@ -44,16 +51,16 @@ else
 {
 	echo "inserted successfully";
 	
-	$context  = stream_context_create($options);
-    	$result = file_get_contents($url, false, $context);
+	// $context  = stream_context_create($options);
+ //    	$result = file_get_contents($url, false, $context);
 
-	    if ($result === FALSE) {
-	        // Handle error
-	        echo "Error making API call";
-	    } else {
-	        // Handle successful API call
-	        echo "API call successful. Response: " . $result;
-	    }
+	//     if ($result === FALSE) {
+	//         // Handle error
+	//         echo "Error making API call";
+	//     } else {
+	//         // Handle successful API call
+	//         echo "API call successful. Response: " . $result;
+	//     }
  //echo "<script>window.location = 'login_form.php';</script>";
 }
 echo $status;
