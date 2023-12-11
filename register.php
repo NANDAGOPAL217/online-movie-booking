@@ -38,6 +38,6 @@ else
  //echo "<script>window.location = 'login_form.php';</script>";
 }
 echo $status;
-mysqli_close($conn)
+mysqli_close($conn);
 }
 ?>
