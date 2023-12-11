@@ -92,7 +92,7 @@
           if(response == 1){
                                     window.location = "index.php";
                                 }else{
-		  			error=response
+		  			error=response;
                                      //error = " <font color='red'>!Invalid UserId.</font> ";
                                      document.getElementById( "msg" ).innerHTML = error;
                                       return false;
