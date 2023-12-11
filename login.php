@@ -12,7 +12,6 @@ $password = mysqli_real_escape_string($conn,$_POST['password']);
 
 $sql_query = "SELECT count(*) as cntUser FROM user WHERE username='".$uname."' and password='".$password."'";
 $result = mysqli_query($conn,$sql_query);
-echo $result;
 $row = mysqli_fetch_array($result);
 $count = $row['cntUser'];
 if($row){
@@ -21,6 +20,7 @@ if($row){
         echo 1;
     }
 }else{
-    echo "<li>Invlid Username or password.</li>";
+    echo $result;
+    //echo "<li>Invlid Username or password.</li>";
     exit();
 }
