@@ -1,5 +1,5 @@
 <?php
-$servername='newdb.mysql.database.azure.com';
+$servername='newdb1.mysql.database.azure.com';
 $username='admin1';
 $password='pass@123456';
 $dbname = "moviebook";
