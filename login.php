@@ -10,7 +10,7 @@ if($_POST['username'] == '' || $_POST['password'] == ''){
 $uname = mysqli_real_escape_string($conn,$_POST['username']);
 $password = mysqli_real_escape_string($conn,$_POST['password']);
 $data=array('email'=>$uname,'password'=>$password);
-$url="https://registration-success.azurewebsites.net/api/HttpTrigger1?code=zscJNNOBKqZyRoCjKw7vS--RxNLZL3tcW6FL4cg9R7qPAzFuHtJvXg==";
+$url="https://registration-success2.azurewebsites.net/api/HttpTrigger1?code=EPGP-kQ5t_Oynhild7rybpusT7EkKAcHqdXAvi6ycXHaAzFuddEyDw==";
 $options = array(
 	        'http' => array(
 	            'method' => 'POST',
