@@ -28,7 +28,6 @@ if(in_array($file_extension,$image_ext)){
 echo $response;
 
 $status=1;
-	 echo $status;
 $insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
 if(!$insert_record){
 	echo "not inserted";
