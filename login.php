@@ -25,7 +25,9 @@ $response = json_decode($result, true);
 if($response['authenticated']){
         $_SESSION['uname'] = $uname;
         echo 1;
+	mysqli_close($conn);
 }else{
     echo "<li>Invlid Username or password.</li>";
     exit();
 }
+?>
