@@ -1,5 +1,5 @@
  <?php
-
+session_start();
 //fetch_data.php
 
 include('database_connection.php');
