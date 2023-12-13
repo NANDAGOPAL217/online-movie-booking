@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "Database.php";
-session_start();
 if($_POST['username'] == '' || $_POST['password'] == ''){
   foreach ($_POST as $key => $value) {
       echo "<li>Please Enter ".$key.".</li>";
