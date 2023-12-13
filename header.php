@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
     <!-- Page Preloder -->
     <div id="preloder">
