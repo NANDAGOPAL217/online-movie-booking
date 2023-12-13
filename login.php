@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "Database.php";
 session_start();
 if($_POST['username'] == '' || $_POST['password'] == ''){
